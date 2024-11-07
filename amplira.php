@@ -9,9 +9,9 @@
 
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/eyeonllc-wp-plugins/mycenterportal',
+    'https://github.com/eyeonllc-wp-plugins/amplira',
     __FILE__,
-    'mycenterportal'
+    'amplira'
 );
 $myUpdateChecker->setBranch('master'); 
 
