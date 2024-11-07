@@ -1,11 +1,12 @@
 <?php
-/**
- * Plugin Name: Amplira
- * Plugin Description: Content amplification tool
- * Version: 0.0.1
- * Author: Your Name
- * Text Domain: amplira
- */
+/*
+Plugin Name: Amplira
+Description: Content amplification tool
+Version: 0.0.2
+Author: Your Name
+Text Domain: amplira
+Licence: GPLv2 or later
+*/
 
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
