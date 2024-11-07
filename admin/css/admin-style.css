@@ -1,0 +1,804 @@
+/**
+ * Amplira Admin Styles
+ * 
+ * 1. Global Styles
+ * 2. Progress Bar
+ * 3. Step 1 - Template Selection
+ * 4. Step 2 - Page Selection
+ * 5. Step 3 - Content Replacement
+ * 6. Step 4 - Content Table
+ * 7. Step 5 - Creation Summary
+ * 8. Settings & API Components
+ * 9. Common Components
+ * 10. Responsive Styles
+ */
+
+/* ==========================================================================
+   1. Global Styles
+   ========================================================================== */
+.amplira-wrap {
+    margin: 20px;
+    max-width: 1200px;
+}
+
+.amplira-content {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   2. Progress Bar
+   ========================================================================== */
+.amplira-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.amplira-steps::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #E5E7EB;
+    z-index: 1;
+}
+
+.amplira-step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+
+.amplira-step-circle {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: 2px solid #E5E7EB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.amplira-step.active .amplira-step-circle {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+
+.amplira-step.completed .amplira-step-circle {
+    background: #00a32a;
+    border-color: #00a32a;
+    color: #fff;
+}
+
+.amplira-step-title {
+    font-size: 14px;
+    color: #1d2327;
+    text-align: center;
+}
+
+/* ==========================================================================
+   3. Step 1 - Template Selection
+   ========================================================================== */
+.amplira-template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.amplira-template-card {
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.amplira-template-card:hover {
+    border-color: #2271b1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.amplira-template-card.selected {
+    border-color: #2271b1;
+    background: #f0f7ff;
+}
+
+.amplira-template-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.amplira-template-card .dashicons {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+    color: #2271b1;
+}
+
+.amplira-template-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #1d2327;
+}
+
+.amplira-template-card p {
+    margin: 0;
+    color: #50575e;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   4. Step 2 - Page Selection
+   ========================================================================== */
+.amplira-page-list {
+    margin-top: 20px;
+}
+
+.amplira-page-item {
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #fff;
+    position: relative;
+}
+
+.amplira-page-item.selected::before {
+    content: '✓';
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #2271b1;
+    font-weight: bold;
+}
+
+.amplira-shortcode-tag {
+    background: #e5e7eb;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #2271b1;
+}
+
+/* ==========================================================================
+   5. Step 3 - Content Replacement
+   ========================================================================== */
+.duplicate-count-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.preview-list {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.preview-item {
+    padding: 10px;
+    margin: 5px 0;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.preview-item span {
+    font-weight: bold;
+    color: #2271b1;
+}
+
+/* ==========================================================================
+   6. Step 4 - Content Table
+   ========================================================================== */
+.amplira-pages-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.amplira-pages-table th {
+    background-color: #f8fafc;
+    font-weight: bold;
+    font-size: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.amplira-pages-table th,
+.amplira-pages-table td {
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+/* Input Styles */
+.amplira-pages-table input[type="text"],
+.amplira-pages-table textarea,
+.amplira-pages-table select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.amplira-pages-table textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* Bulk Edit Mode */
+.amplira-pages-table.bulk-edit-mode tr.template-row {
+    background-color: #f0f7ff;
+}
+
+.amplira-pages-table.bulk-edit-mode tr.template-row td {
+    border-bottom: 2px solid #2271b1;
+}
+
+.amplira-pages-table.bulk-edit-mode tr.template-row input,
+.amplira-pages-table.bulk-edit-mode tr.template-row textarea {
+    border-color: #2271b1;
+    font-style: italic;
+}
+
+/* Table Controls Enhancement */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.primary-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.primary-controls button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    height: auto;
+}
+
+.primary-controls button .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+}
+
+.ai-settings {
+    display: none;
+    margin-top: 10px;
+}
+
+.ai-settings label {
+    margin-right: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Context Menu */
+.amplira-context-menu {
+    position: fixed;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 4px 0;
+    z-index: 1000;
+    min-width: 160px;
+}
+
+.amplira-context-menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.amplira-context-menu-item:hover {
+    background: #f0f7ff;
+}
+
+/* Preview Pane */
+.preview-pane {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-result-preview {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+}
+
+.preview-title {
+    color: #1a0dab;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.preview-url {
+    color: #006621;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.preview-description {
+    color: #545454;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* AI Loading States */
+.ai-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 100%;
+    background: #2271b1;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* AI Content States */
+.ai-generated {
+    animation: highlight 1s ease-out;
+}
+
+.ai-error {
+    background-color: #fff5f5;
+}
+
+@keyframes highlight {
+    0% { background-color: #f0f7ff; }
+    100% { background-color: transparent; }
+}
+
+/* Context Menu Enhancements */
+.context-menu {
+    position: fixed;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 180px;
+}
+
+.menu-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.menu-item:hover {
+    background: #f0f7ff;
+}
+
+.menu-icon {
+    width: 16px;
+    text-align: center;
+}
+
+/* Template Row Styling */
+.template-row {
+    background: #f0f7ff;
+}
+
+.template-row td {
+    border-bottom: 2px solid #2271b1;
+}
+
+/* Action Buttons Enhancement */
+.ai-generate-meta {
+    display: inline-block !important;
+}
+
+.ai-generate-meta .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Progress Indicator */
+.generation-progress {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* ==========================================================================
+   Settings & API Components
+   ========================================================================== */
+.amplira-settings-card {
+    background: white;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.amplira-test-section {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.amplira-status-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.amplira-status-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px;
+    background: #f8fafc;
+    border-radius: 4px;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    margin-right: 10px;
+    position: relative;
+}
+
+.status-indicator::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.status-indicator.status-success {
+    background: #00a32a;
+}
+
+.status-indicator.status-success::after {
+    border-color: rgba(0, 163, 42, 0.2);
+}
+
+#toggle-api-key {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+#toggle-api-key .dashicons {
+    margin-top: 3px;
+}
+
+#test-ai-connection {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#test-ai-connection .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.notice {
+    margin: 10px 0;
+}
+
+.notice p {
+    display: flex;
+    align-items: center;
+    margin: 0.5em 0;
+}
+
+.notice .dashicons {
+    margin-right: 8px;
+}
+
+.amplira-test-button {
+    background-color: #2271b1 !important;
+    border-color: #2271b1 !important;
+    color: #fff !important;
+    padding: 5px 15px !important;
+}
+
+.amplira-test-button:hover {
+    background-color: #135e96 !important;
+    border-color: #135e96 !important;
+}
+
+.amplira-test-button .dashicons {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+/* ==========================================================================
+   5. Common Components
+   ========================================================================== */
+/* Buttons */
+.amplira-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.amplira-button-primary {
+    background: #2271b1;
+    color: #fff;
+    border: none;
+}
+
+.amplira-button-primary:hover {
+    background: #135e96;
+}
+
+.amplira-button-secondary {
+    background: #f6f7f7;
+    border: 1px solid #2271b1;
+    color: #2271b1;
+}
+
+.amplira-button-secondary:hover {
+    background: #f0f0f1;
+}
+
+/* Action Buttons */
+.bulk-copy-btn,
+.quick-fill-btn,
+.smart-suggest-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0 5px;
+}
+
+.bulk-copy-btn:hover,
+.quick-fill-btn:hover,
+.smart-suggest-btn:hover {
+    color: #2271b1;
+}
+
+/* Navigation */
+.amplira-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Loading States */
+.amplira-loading {
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amplira-loading::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2271b1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Only show the active step */
+.amplira-step-content.active {
+    display: block !important;
+}
+
+/* ==========================================================================
+ 6. Responsive Styles
+   ========================================================================== */
+@media screen and (max-width: 782px) {
+    .amplira-step-title {
+        font-size: 12px;
+    }
+
+    .amplira-template-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .amplira-step-circle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .amplira-pages-table {
+        font-size: 14px;
+    }
+
+    .amplira-pages-table th,
+    .amplira-pages-table td {
+        padding: 8px;
+    }
+
+    .amplira-pages-table input[type="text"],
+    .amplira-pages-table textarea,
+    .amplira-pages-table select {
+        font-size: 14px;
+    }
+}
+
+.bulk-edit-toggle {
+    display: none;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.validate-button {
+    background: #2271b1;
+    color: #fff;
+}
+
+.clear-button {
+    background: #f6f7f7;
+    border: 1px solid #ddd;
+}
+
+/* Add styles for the header icons */
+.amplira-pages-table th .header-icons {
+    display: inline-block;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.amplira-pages-table th .header-icons button {
+    padding: 2px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.amplira-pages-table th .header-icons button:hover {
+    opacity: 1;
+}
+
+@media screen and (max-width: 782px) {
+    /* [Keep existing mobile styles, then add:] */
+    
+    .primary-controls {
+        flex-direction: column;
+    }
+
+    .ai-settings {
+        padding: 8px;
+    }
+
+    .ai-settings label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .context-menu {
+        min-width: 160px;
+    }
+
+    .menu-item {
+        padding: 10px; /* Larger touch target on mobile */
+    }
+
+    .progress-bar {
+        width: 160px;
+    }
+
+    .ai-loading-overlay {
+        font-size: 14px;
+    }
+}
+
+/* Hide undo/redo buttons */
+.undo-redo-controls {
+    display: none !important;
+}
+
+/* Style AI button and settings */
+.ai-generate-meta {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 5px;
+}
+
+.ai-settings {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f0f0f1;
+    border-radius: 4px;
+}
+
+.ai-settings label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Ensure proper control group layout */
+.control-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
